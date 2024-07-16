@@ -20,7 +20,7 @@
     // Why? It's because that is an array reference, not an array copy. They both point to the same array!
     // So, how do we fix this? We take a copy instead!
 
-    
+
     // one way
     let players2 = players.slice()
     players2[0] = "menhua"
@@ -37,6 +37,26 @@
     console.log(players, players2, players3, players4);
 
     // The same thing goes for objects, let's say we have a person object
+    function createName(name) {
+      return {
+        name // === name:name
+      }
+    }
+
+    let n1 = createName("menhua");
+    let n2 = createName("cowmenhua");
+    let n3 = createName("damenhua");
+
+    const all1 = [n1, n2, n3];
+    const all2 = all1.slice();
+
+    all2[0].name = "Apple"
+    console.log(all1, all2);
+
+    all2[1] = {name: "spice"}
+    console.log(all1, all2);
+
+
 
     // with Objects
     const person = {
